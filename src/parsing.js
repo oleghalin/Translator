@@ -35,7 +35,7 @@ class File {
    * @returns {Array}
    */
   findTranslations (trimmedFile) {
-    const regex = /\$t\('[a-zA-Z0-9.]+'\)/g
+    const regex = /\$t\('[a-zA-Z0-9_. \s]+'\)/g
     let result = ''
     const indices = []
     while ((result = regex.exec(trimmedFile))) {
