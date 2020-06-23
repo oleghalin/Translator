@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
-const set = require('lodash.set')
+const lodash = require('lodash')
 const get = require('lodash.get')
 const commandLineUsage = require('command-line-usage')
 const commandLineArgs = require('command-line-args')
@@ -80,7 +80,7 @@ const traverseThroughDirectory = (path) => {
       file = new File(relativePath)
       file.translationStrings.forEach(str => {
         if (get(translationStructure, str) === undefined) {
-          set(translationStructure, str, '')
+          lodash.setWith(translationStructure, `["${str}"]`, '')
         }
       })
     }
